@@ -39,7 +39,7 @@ export default {
         url: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=37`,
     },
     fetchAnimation: {
-        title: 'Mystery',
+        title: 'Animation',
         url: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=16`,
     },
     fetchTV: {
