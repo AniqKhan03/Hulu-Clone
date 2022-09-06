@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import NavBar from "../components/NavBar";
 import Results from "../components/Results";
 import requests from "../utils/requests";
+import Search from "./search";
 
 export default function Home({ results }) {
   return (
@@ -16,14 +17,13 @@ export default function Home({ results }) {
       <Header />
       <NavBar />
       <Results results={results} />
+      <Search />
     </div>
   );
 }
 
 export async function getServerSideProps(context) {
   const genre = context.query.genre;
-  console.log(requests);
-
   const request = await fetch(
     `${requests[genre]?.url || requests.fetchTrending.url}`
   ).then((res) => res.json());
@@ -33,4 +33,6 @@ export async function getServerSideProps(context) {
       results: request.results,
     },
   };
+
+
 }
